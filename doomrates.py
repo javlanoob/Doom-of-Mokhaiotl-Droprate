@@ -36,7 +36,7 @@ def get_input_waves():
     print("Enter how many waves you've cleared at each delve level (enter 0 if none):")
     for lvl in range(1, 10):
         key = 9 if lvl == 9 else lvl
-        val = input(f"Delve level {key}+ waves cleared: ")
+        val = input(f"Delve level {key} waves cleared: ")
         try:
             waves[key] = int(val)
         except ValueError:
@@ -157,6 +157,11 @@ def main():
     print("\n--- Summary ---")
     print(f"Expected uniques: {total_expected:.2f}")
     print(f"Actual uniques:   {total_owned}")
+
+    print("\nExpected items:")
+    for item, data in results.items():
+        print(f"{item}: {data['expected']:.2f}")
+
 
 if __name__ == "__main__":
     main()
